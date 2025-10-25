@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, beforeAll, afterEach, vi } from 'vitest';
 import {
   setTokens,
   getToken,
@@ -8,6 +8,7 @@ import {
   isTokenExpired,
   getTokenInfo,
 } from '../../packages/frontend/src/lib/tokenManager.js';
+import { ensureBase64Polyfill, restoreAllMocks } from './mocks/dependency-mocks.js';
 
 const makeJwt = (payload) => {
   const base64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
@@ -15,12 +16,16 @@ const makeJwt = (payload) => {
 };
 
 describe('Core Feature: Auth Token Manager', () => {
+  beforeAll(() => ensureBase64Polyfill());
   beforeEach(() => {
     // reset storages and in‑memory state
     clearAllTokens();
     localStorage.clear();
     sessionStorage.clear();
     vi.useRealTimers();
+  });
+  afterEach(() => {
+    restoreAllMocks();
   });
 
   // setTokens
@@ -64,16 +69,22 @@ describe('Core Feature: Auth Token Manager', () => {
       // after first call, token is cached already; update storage shouldn't change return
       sessionStorage.setItem('accessToken', 'other');
       expect(getToken()).toBe('mem');
+      expect(sessionStorage.getItem('accessToken')).toBe('other');
+      expect(getRefreshToken()).toBeNull();
     });
 
     it('prefers sessionStorage over localStorage when not cached', () => {
       sessionStorage.setItem('accessToken', 'sess');
       localStorage.setItem('accessToken', 'loc');
       expect(getToken()).toBe('sess');
+      expect(localStorage.getItem('accessToken')).toBe('loc');
+      expect(getRefreshToken()).toBeNull();
     });
 
     it('returns null when nothing is set', () => {
       expect(getToken()).toBeNull();
+      expect(getRefreshToken()).toBeNull();
+      expect(isRemembered()).toBe(false);
     });
   });
 
@@ -84,16 +95,22 @@ describe('Core Feature: Auth Token Manager', () => {
       // overwrite storage to ensure memory wins
       sessionStorage.setItem('refreshToken', 'refresh.sess');
       expect(getRefreshToken()).toBe('refresh.mem');
+      expect(sessionStorage.getItem('refreshToken')).toBe('refresh.sess');
+      expect(getToken()).toBe('acc');
     });
 
     it('prefers sessionStorage over localStorage', () => {
       sessionStorage.setItem('refreshToken', 'r.sess');
       localStorage.setItem('refreshToken', 'r.loc');
       expect(getRefreshToken()).toBe('r.sess');
+      expect(localStorage.getItem('refreshToken')).toBe('r.loc');
+      expect(getToken()).toBeNull();
     });
 
     it('returns null when missing', () => {
       expect(getRefreshToken()).toBeNull();
+      expect(getToken()).toBeNull();
+      expect(isRemembered()).toBe(false);
     });
   });
 
@@ -103,16 +120,22 @@ describe('Core Feature: Auth Token Manager', () => {
       localStorage.setItem('accessToken', 't');
       localStorage.setItem('rememberMe', 'true');
       expect(isRemembered()).toBe(true);
+      expect(localStorage.getItem('rememberMe')).toBe('true');
+      expect(sessionStorage.getItem('accessToken')).toBeNull();
     });
 
     it('is true when access token exists in localStorage', () => {
       localStorage.removeItem('rememberMe');
       localStorage.setItem('accessToken', 't');
       expect(isRemembered()).toBe(true);
+      expect(localStorage.getItem('accessToken')).toBe('t');
+      expect(sessionStorage.getItem('accessToken')).toBeNull();
     });
 
     it('is false otherwise', () => {
       expect(isRemembered()).toBe(false);
+      expect(localStorage.getItem('accessToken')).toBeNull();
+      expect(sessionStorage.getItem('accessToken')).toBeNull();
     });
   });
 
@@ -131,6 +154,8 @@ describe('Core Feature: Auth Token Manager', () => {
       clearAllTokens();
       clearAllTokens();
       expect(getToken()).toBeNull();
+      expect(getRefreshToken()).toBeNull();
+      expect(localStorage.getItem('accessToken')).toBeNull();
     });
 
     it('removes remember flag and refresh across storages', () => {
@@ -156,6 +181,8 @@ describe('Core Feature: Auth Token Manager', () => {
 
     it('returns true for malformed token', () => {
       expect(isTokenExpired('not.a.jwt')).toBe(true);
+      expect(typeof isTokenExpired('not.a.jwt')).toBe('boolean');
+      expect(isTokenExpired('')).toBe(true);
     });
 
     it('uses 5-minute buffer before exp', () => {
@@ -173,7 +200,10 @@ describe('Core Feature: Auth Token Manager', () => {
 
     it('returns false when exp is well in the future', () => {
       const exp = Math.floor(Date.now() / 1000) + 3600;
-      expect(isTokenExpired(makeJwt({ sub: 'u', exp }))).toBe(false);
+      const res = isTokenExpired(makeJwt({ sub: 'u', exp }));
+      expect(res).toBe(false);
+      expect(typeof res).toBe('boolean');
+      expect(exp).toBeGreaterThan(Math.floor(Date.now() / 1000));
     });
   });
 
@@ -197,6 +227,7 @@ describe('Core Feature: Auth Token Manager', () => {
       expect(info.rememberMe).toBe(true);
       expect(info.isExpired).toBe(false);
       expect(info.expiresAt).toBeInstanceOf(Date);
+      expect(isRemembered()).toBe(true);
     });
 
     it('flags isExpired when within buffer window', () => {
@@ -207,6 +238,8 @@ describe('Core Feature: Auth Token Manager', () => {
       setTokens(makeJwt({ sub: '1', role: 'USER', exp }), 'r', false);
       const info = getTokenInfo();
       expect(info.isExpired).toBe(true);
+      expect(info.expiresAt).toBeInstanceOf(Date);
+      expect(typeof info.userId).toBe('string');
     });
   });
 });

@@ -23,6 +23,10 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: '../../tests/coverage',
+      include: [
+        'src/lib/tokenManager.js',
+        'src/lib/*Validation.js'
+      ],
       exclude: ['**/node_modules/**'],
     },
   },

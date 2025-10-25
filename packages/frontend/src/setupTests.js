@@ -1,7 +1,13 @@
 // Global test setup for Vitest (jsdom environment)
-// You can extend this with libraries like @testing-library/jest-dom or MSW.
+// Base64 polyfills for Node/jsdom
+if (typeof globalThis.atob !== 'function') {
+  globalThis.atob = (str) => Buffer.from(str.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('binary');
+}
+if (typeof globalThis.btoa !== 'function') {
+  globalThis.btoa = (str) => Buffer.from(str, 'binary').toString('base64');
+}
 
-// Example: enable useful DOM matchers
+// Example: enable useful DOM matchers if installed
 // import '@testing-library/jest-dom';
 
 // Example: MSW setup (if/when you add MSW)
@@ -9,4 +15,3 @@
 // beforeAll(() => server.listen());
 // afterEach(() => server.resetHandlers());
 // afterAll(() => server.close());
-
