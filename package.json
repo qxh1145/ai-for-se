@@ -1,0 +1,41 @@
+{
+  "name": "fitnexusapp",
+  "version": "1.0.0",
+  "description": "Monorepo for the Fitnexus application",
+  "main": "index.js",
+  "type": "module",
+  "homepage": "https://chipkiet.github.io/FitnexusApp",
+  "scripts": {
+    "install:all": "npm install",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    
+    "xwalk:score": "node scripts/compute_popularity_score.js",
+    "xwalk:prepare": "node scripts/normalize_exercise_muscles.js",
+
+    "xwalk:import": "node scripts/import_exercises.js",
+
+    "xwalk:steps": "node scripts/import_exercise_steps_json.js",
+    
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "gh-pages": "^6.3.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.23.0",
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "ioredis": "^5.8.0",
+    "lucide-react": "^0.544.0"
+  }
+}

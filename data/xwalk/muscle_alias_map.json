@@ -1,0 +1,67 @@
+{
+  "abdominals": ["rectus-abdominis"],
+  "abs": ["rectus-abdominis"],
+  "lower-abs": ["rectus-abdominis"],
+  "obliques": ["obliques"],
+  "transversus-abdominis": ["transversus-abdominis"],
+
+  "adductors": ["hip-adductors"],
+  "abductors": ["gluteus-medius"],
+  "inner-thighs": ["hip-adductors"],
+  "groin": ["hip-adductors"],
+
+  "biceps": ["biceps-brachii"],
+  "triceps": ["triceps-brachii"],
+  "brachialis": ["brachialis"],
+  "forearms": ["wrist-flexors", "wrist-extensors"],
+  "wrists": ["wrist-flexors", "wrist-extensors"],
+  "wrist-flexors": ["wrist-flexors"],
+  "wrist-extensors": ["wrist-extensors"],
+  "hands": null,
+
+  "deltoids": ["lateral-deltoid"],
+  "delts": ["lateral-deltoid"],
+  "rear-deltoids": ["posterior-deltoid"],
+  "shoulders": ["lateral-deltoid"],
+
+  "chest": ["mid-chest"],
+  "upper-chest": ["upper-chest"],
+  "pectorals": ["mid-chest"],
+
+  "back": ["latissimus-dorsi"],
+  "upper-back": ["rhomboids"],
+  "lower-back": ["erector-spinae"],
+  "lats": ["latissimus-dorsi"],
+  "latissimus-dorsi": ["latissimus-dorsi"],
+  "trapezius": ["trapezius"],
+  "traps": ["trapezius"],
+  "rhomboids": ["rhomboids"],
+  "levator-scapulae": null,
+  "serratus-anterior": ["serratus-anterior"],
+  "rotator-cuff": ["rotator-cuff"],
+  "spine": ["erector-spinae"],
+
+  "core": ["rectus-abdominis"],
+
+  "quadriceps": ["quadriceps"],
+  "quads": ["quadriceps"],
+  "hamstrings": ["hamstrings"],
+  "glutes": ["gluteus-maximus"],
+  "gluteus-maximus": ["gluteus-maximus"],
+  "gluteus-medius": ["gluteus-medius"],
+  "gluteus-minimus": ["gluteus-minimus"],
+  "hip-flexors": ["hip-flexors"],
+  "calves": ["gastrocnemius", "soleus"],
+  "soleus": ["soleus"],
+  "gastrocnemius": ["gastrocnemius"],
+  "tibialis-anterior": ["tibialis-anterior"],
+  "shins": ["tibialis-anterior"],
+  "ankles": ["tibialis-anterior"],
+  "ankle-stabilizers": ["tibialis-anterior", "gastrocnemius", "soleus"],
+  "feet": null,
+
+  "cardiovascular-system": null,
+  "neck": null,
+  "sternocleidomastoid": null
+}
+

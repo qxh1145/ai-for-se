@@ -1,0 +1,252 @@
+[
+  {
+    "muscle_key": "shins",
+    "name_en": "shins",
+    "name": "ống chân"
+  },
+  {
+    "muscle_key": "hands",
+    "name_en": "hands",
+    "name": "bàn tay"
+  },
+  {
+    "muscle_key": "sternocleidomastoid",
+    "name_en": "sternocleidomastoid",
+    "name": "ức-đòn-chũm"
+  },
+  {
+    "muscle_key": "soleus",
+    "name_en": "soleus",
+    "name": "cơ dép (soleus)"
+  },
+  {
+    "muscle_key": "inner-thighs",
+    "name_en": "inner thighs",
+    "name": "đùi trong"
+  },
+  {
+    "muscle_key": "lower-abs",
+    "name_en": "lower abs",
+    "name": "bụng dưới"
+  },
+  {
+    "muscle_key": "grip-muscles",
+    "name_en": "grip muscles",
+    "name": "cơ bóp/grip"
+  },
+  {
+    "muscle_key": "abdominals",
+    "name_en": "abdominals",
+    "name": "cơ bụng"
+  },
+  {
+    "muscle_key": "wrist-extensors",
+    "name_en": "wrist extensors",
+    "name": "duỗi cổ tay"
+  },
+  {
+    "muscle_key": "wrist-flexors",
+    "name_en": "wrist flexors",
+    "name": "gấp cổ tay"
+  },
+  {
+    "muscle_key": "latissimus-dorsi",
+    "name_en": "latissimus dorsi",
+    "name": "cơ lưng rộng (lats)"
+  },
+  {
+    "muscle_key": "upper-chest",
+    "name_en": "upper chest",
+    "name": "ngực trên"
+  },
+  {
+    "muscle_key": "rotator-cuff",
+    "name_en": "rotator cuff",
+    "name": "rotator cuff"
+  },
+  {
+    "muscle_key": "wrists",
+    "name_en": "wrists",
+    "name": "cổ tay"
+  },
+  {
+    "muscle_key": "groin",
+    "name_en": "groin",
+    "name": "groin"
+  },
+  {
+    "muscle_key": "brachialis",
+    "name_en": "brachialis",
+    "name": "brachialis"
+  },
+  {
+    "muscle_key": "deltoids",
+    "name_en": "deltoids",
+    "name": "cơ vai"
+  },
+  {
+    "muscle_key": "feet",
+    "name_en": "feet",
+    "name": "bàn chân"
+  },
+  {
+    "muscle_key": "ankles",
+    "name_en": "ankles",
+    "name": "cổ chân"
+  },
+  {
+    "muscle_key": "trapezius",
+    "name_en": "trapezius",
+    "name": "cơ thang"
+  },
+  {
+    "muscle_key": "rear-deltoids",
+    "name_en": "rear deltoids",
+    "name": "vai sau"
+  },
+  {
+    "muscle_key": "chest",
+    "name_en": "chest",
+    "name": "ngực"
+  },
+  {
+    "muscle_key": "quadriceps",
+    "name_en": "quadriceps",
+    "name": "cơ đùi trước (quads)"
+  },
+  {
+    "muscle_key": "back",
+    "name_en": "back",
+    "name": "lưng"
+  },
+  {
+    "muscle_key": "core",
+    "name_en": "core",
+    "name": "vùng core"
+  },
+  {
+    "muscle_key": "shoulders",
+    "name_en": "shoulders",
+    "name": "vai"
+  },
+  {
+    "muscle_key": "ankle-stabilizers",
+    "name_en": "ankle stabilizers",
+    "name": "ổn định cổ chân"
+  },
+  {
+    "muscle_key": "rhomboids",
+    "name_en": "rhomboids",
+    "name": "cơ thoi (rhomboids)"
+  },
+  {
+    "muscle_key": "obliques",
+    "name_en": "obliques",
+    "name": "cơ liên sườn"
+  },
+  {
+    "muscle_key": "lower-back",
+    "name_en": "lower back",
+    "name": "lưng dưới"
+  },
+  {
+    "muscle_key": "hip-flexors",
+    "name_en": "hip flexors",
+    "name": "gấp hông"
+  },
+  {
+    "muscle_key": "levator-scapulae",
+    "name_en": "levator scapulae",
+    "name": "nâng vai (levator scapulae)"
+  },
+  {
+    "muscle_key": "abductors",
+    "name_en": "abductors",
+    "name": "dạng đùi (abductors)"
+  },
+  {
+    "muscle_key": "serratus-anterior",
+    "name_en": "serratus anterior",
+    "name": "cơ răng trước"
+  },
+  {
+    "muscle_key": "traps",
+    "name_en": "traps",
+    "name": "cơ thang (traps)"
+  },
+  {
+    "muscle_key": "forearms",
+    "name_en": "forearms",
+    "name": "cẳng tay"
+  },
+  {
+    "muscle_key": "delts",
+    "name_en": "delts",
+    "name": "cơ vai (delts)"
+  },
+  {
+    "muscle_key": "biceps",
+    "name_en": "biceps",
+    "name": "cơ nhị đầu"
+  },
+  {
+    "muscle_key": "upper-back",
+    "name_en": "upper back",
+    "name": "lưng trên"
+  },
+  {
+    "muscle_key": "spine",
+    "name_en": "spine",
+    "name": "cột sống"
+  },
+  {
+    "muscle_key": "cardiovascular-system",
+    "name_en": "cardiovascular system",
+    "name": "hệ tim mạch"
+  },
+  {
+    "muscle_key": "triceps",
+    "name_en": "triceps",
+    "name": "cơ tam đầu"
+  },
+  {
+    "muscle_key": "adductors",
+    "name_en": "adductors",
+    "name": "khép đùi (adductors)"
+  },
+  {
+    "muscle_key": "hamstrings",
+    "name_en": "hamstrings",
+    "name": "cơ đùi sau (hamstrings)"
+  },
+  {
+    "muscle_key": "glutes",
+    "name_en": "glutes",
+    "name": "mông (glutes)"
+  },
+  {
+    "muscle_key": "pectorals",
+    "name_en": "pectorals",
+    "name": "cơ ngực"
+  },
+  {
+    "muscle_key": "calves",
+    "name_en": "calves",
+    "name": "bắp chân (calves)"
+  },
+  {
+    "muscle_key": "lats",
+    "name_en": "lats",
+    "name": "cơ xô (lats)"
+  },
+  {
+    "muscle_key": "quads",
+    "name_en": "quads",
+    "name": "cơ đùi trước (quads)"
+  },
+  {
+    "muscle_key": "abs",
+    "name_en": "abs",
+    "name": "cơ bụng"
+  }
+]
