@@ -4,7 +4,7 @@
 
 - From repo root: `npm -w frontend run test`
 - Watch mode: `npm -w frontend run test:watch`
-- Coverage: `npm -w frontend run test:cov` (HTML report at `packages/frontend/coverage`)
+- Coverage: `npm -w frontend run test:cov` (HTML report at `tests/coverage`)
 
 See more details in `docs/TESTING.md`.
 

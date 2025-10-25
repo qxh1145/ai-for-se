@@ -7,7 +7,7 @@ import {
   clearAllTokens,
   isTokenExpired,
   getTokenInfo,
-} from '../lib/tokenManager';
+} from '../../packages/frontend/src/lib/tokenManager.js';
 
 const makeJwt = (payload) => {
   const base64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');

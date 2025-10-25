@@ -41,13 +41,13 @@ npm -w frontend run test:watch
 ## Run a Specific Test File
 
 ```
-npm -w frontend run test -- src/__tests__/tokenManager.feature.test.js
+npm -w frontend run test -- ../../tests/unit/tokenManager.test.js
 ```
 
 You can also pass a pattern:
 
 ```
-npm -w frontend run test -- src/__tests__/*Login*.test.*
+npm -w frontend run test -- ../../tests/unit/*Login*.test.*
 ```
 
 ## Coverage
@@ -59,7 +59,7 @@ Vitest supports coverage via V8 instrumentation. You can try:
 npm -w frontend run test:cov
 ```
 
-The coverage configuration is set in `packages/frontend/vite.config.js` under `test.coverage`.
+The coverage configuration is set in `packages/frontend/vite.config.js` under `test.coverage` and writes HTML to `tests/coverage`.
 
 ## Test Stack
 
@@ -69,13 +69,12 @@ The coverage configuration is set in `packages/frontend/vite.config.js` under `t
 
 ## Where Tests Live
 
-All tests are under `packages/frontend/src/__tests__/`.
+All frontend unit tests are under `tests/unit/`.
 
 Key files:
 
 - `packages/frontend/src/setupTests.js` — global test setup (jest-dom, MSW lifecycle)
-- `packages/frontend/src/test/mocks/handlers.js` — MSW request handlers
-- `packages/frontend/src/test/mocks/server.js` — MSW server instance
+- `tests/unit/mocks/*` — shared mocks and test utilities
 
 ## Common Scenarios
 

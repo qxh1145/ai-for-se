@@ -17,11 +17,13 @@ export default defineConfig({
     setupFiles: 'src/setupTests.js',
     globals: true,
     css: true,
+    // Discover tests from the central /tests directory
+    include: ['../../tests/unit/**/*.test.{js,jsx,ts,tsx}'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
-      reportsDirectory: 'coverage',
-      exclude: ['**/node_modules/**', 'src/test/**', 'src/**/__tests__/**'],
+      reportsDirectory: '../../tests/coverage',
+      exclude: ['**/node_modules/**'],
     },
   },
 })
